@@ -1,0 +1,55 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Croix CSS</title>
+    <style>
+   #croix {
+        width: 20px;
+        height: 20px;
+        /* dimensions du carré contenant la croix */
+        background-color: red;
+        border:solid black 1px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        overflow: hidden;
+    }
+    
+    #croix:before,#croix:after{
+        background-color: white;
+        width: 8%;
+        margin-top:8%;
+        /* pour que la croix soit bien centrée (dans un carré), width et margin-top doivent être égaux */
+        height: 150%;
+        /* height est à ajuster selon la dimension de croix voulue. Ce qui dépasse sera caché grâce à overflow:hidden */
+        display: inline-block;
+        content: '';
+    }
+
+    #croix:before {
+        -webkit-transform:rotate(45deg);
+            -ms-transform:rotate(45deg);
+                transform:rotate(45deg);
+        
+    }
+    #croix:after {
+        -webkit-transform:rotate(-45deg);
+            -ms-transform:rotate(-45deg);
+                transform:rotate(-45deg);
+    }
+    </style>
+</head>
+
+<body>
+    test
+    <div id="croix"></div>
+</body>
+</html>
