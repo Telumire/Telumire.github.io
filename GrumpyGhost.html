@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grumpy Ghost</title>
+    <style>
+        canvas {
+            /* style de la zone de jeu (canvas) */
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+            image-rendering: crisp-edges;
+        }
+    </style>
+</head>
+
+<body onload="startGame()">
+    <script>
+        var hauteurZoneJeu = 500;
+        var longueurZoneJeu = 500;
+
+        var joueur; //représente le joueur
+
+        //murs empêchant le joueur de sortir du cadre du jeu
+        var murHaut;
+        var murGauche;
+        var murDroit;
+        var murBas;
+
+        function startGame() {
+            joueur = new component(50, 60, "plasmuscrisp.svg", 10, 120,"image"); //dessin du joueur (carré rouge). Les deux premiers chiffres permettent de changer la taille du joueur. On crée un composant constructeur, pour ajouter un élément à la zone de jeu. On appel l'objet constructeur "component", et on crée le premier composant que l'on appelle joueur. Les deux derniers chiffres sont les coordonnées en X et Y du joueur (en position initiale). A chaque fois que l'on veut créer un élément sur la zone de jeu, on utilisera la fonction component. Ne pas oublier de mettre l'équivalent update sinon l'élément sera immédiatement supprimé !
+            /* invoque la méthode start() de l'objet ZoneJeu */
+
+            //Murs (obstacles)
+            largeurMur = 10;
+            murHaut = new component(longueurZoneJeu, largeurMur, "green", 0, 0);
+            murGauche = new component(largeurMur, hauteurZoneJeu, "green", 0, 0);
+            murDroit = new component(largeurMur, hauteurZoneJeu, "green", longueurZoneJeu - largeurMur, 0);
+            murBas = new component(longueurZoneJeu, largeurMur, "green", 0, hauteurZoneJeu - largeurMur);
+            ZoneJeu.start();
+        }
+
+        var ZoneJeu = {
+            /*on créée l'objet ZoneJeu et on lui donne des propriétés et méthodes*/
+            canvas: document.createElement("canvas"),
+            start: function () {
+                /*La méthode start créée un élément canvas et l'insère dans le premier enfant de l'élément <body>*/
+                this.canvas.width = longueurZoneJeu; //largeur du canvas (zone de jeu)
+                this.canvas.height = hauteurZoneJeu; //hauteur du canvas
+                this.context = this.canvas.getContext("2d"); //on récupère l'objet context (pour le dessin)
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.interval = setInterval(majZoneJeu, 20); //on exécute la fonction majZoneJeu pour rafraichir le canvas toute les 20 millisecondes (soit 50 fois par secondes)
+
+                //On créée une méthode pour vérifier si une touche du clavier est pressée (pour pouvoir déplacer le perso avec les touches fléchées)
+                window.addEventListener('keydown', function (e) {
+                    // pour une seule touche pressée :
+                    // ZoneJeu.cle = e.keyCode;
+                    // pour plusieurs touches pressées :
+                    //On doit créer un tableau cles pour l'objet ZoneJeu, et on doit insérer un élément pour chaque touche pressée et leur donner la valeur true, la valeur reste true jusqu'à ce que la touche n'est plus pressée, elle devient alors false
+                    ZoneJeu.cles = (ZoneJeu.cles || []); //création d'un tableau
+                    ZoneJeu.cles[e.keyCode] = true;
+                })
+                window.addEventListener('keyup', function (e) {
+                    // pour une seule touche pressée :
+                    //ZoneJeu.cle = false; 
+                    //quand la touche est relâchée, la propriété clé devient false
+                    // pour plusieurs touches pressées :
+                    ZoneJeu.cles[e.keyCode] = false;
+                })
+
+            }, //on ajoute une fonction clear pour nettoyer toute la zone du canvas
+            clear: function () {
+                //suppression des éléments
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }, //la méthode gameover permet de supprimer l'intervalle de 20 millisecondes
+            gameover: function () {
+                clearInterval(this.interval);
+            }
+        }
+
+        //On donne un ID au canvas pour pouvoir détecter et styliser le canvas + facilement
+        canvas.id = 'ZoneJeu'; 
+
+        function component(width, height, color, x, y,type) {
+            this.type = type;
+            if(type == "image") {
+                this.image = new Image();
+                this.image.src = color;
+            }
+            //description de la fonction élément composant. Elle décrit l'apparence (taille, couleur) et la position de l'élément
+            this.width = width;
+            this.height = height;
+
+            //On créée des indicateurs de vitesse pour contrôler le déplacement de l'élément
+            this.vitesseX = 0;
+            this.vitesseY = 0;
+
+            this.x = x;
+            this.y = y;
+
+            //on ajoute une fonction update dans le composant constructeur pour pouvoir dessiner les composants
+            this.update = function () {
+                ctx = ZoneJeu.context;
+                if(type=="image") {
+                    ctx.drawImage(this.image,this.x,this.y, this.width, this.height);
+                }
+                else{
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+            }
+
+            //dans la fonction composant constructeur, on ajoute la fonction nouvPos qui utilise les propriétés vitesseX et vitesseY pour changer la position du coposant. nouvPos est appelé dans la fonction majZoneJeu, avant de dessiner le composant
+            this.nouvPos = function () {
+                this.x += this.vitesseX;
+                this.y += this.vitesseY;
+            }
+            this.collisionAvec = function (autreObj) {
+                var objGauche = this.x;
+                var objDroit = this.x + (this.width);
+                var objDessus = this.y;
+                var objDessous = this.y + (this.height);
+
+                var autreGauche = autreObj.x;
+                var autreDroit = autreObj.x + (autreObj.width);
+                var autreDessus = autreObj.y;
+                var autreDessous = autreObj.y + (autreObj.height);
+
+                var collision = true;
+
+                if (
+                    (objDessous < autreDessus) ||
+                    (objDessus > autreDessous) ||
+                    (objDroit < autreGauche) ||
+                    (objGauche > autreDroit)) { collision = false; }
+
+                return collision;
+            }
+        }
+
+        //Fonction pour mettre à jour la zone de jeu (affichage de 50 images/secondes)
+        function majZoneJeu() {
+            var vitessePerso = 5;
+            //A optimiser !
+            if (joueur.collisionAvec(murBas)) { ZoneJeu.cles[40] = false; }
+            if (joueur.collisionAvec(murGauche)) { ZoneJeu.cles[37] = false; }
+            if (joueur.collisionAvec(murDroit)) { ZoneJeu.cles[39] = false; }
+            if (joueur.collisionAvec(murHaut)) { ZoneJeu.cles[38] = false; }
+
+            //on appelle les méthodes clear() et update(), ainsi le composant sera dessiné et supprimé 50 fois par secondes
+            ZoneJeu.clear(); //si on ne nettoye pas la zone, les dessins précédents resteront sur la zone de jeu !
+            // test : on déplace le joueur de 1 dans x à chaque appel de fonction, résultat attendu : le joueur devrais se déplacer de gauche à droite de la zone de jeu
+            // joueur.x += 1;
+            //chaque élément dessiné devra être animé indépendamment de cette façon
+
+
+            //Pour contrôler le joueur avec le clavier :
+            joueur.vitesseX = 0;
+            joueur.vitesseY = 0;
+
+            // pour une touche à la fois :
+            // if (ZoneJeu.cle && ZoneJeu.cle == 37){joueur.vitesseX=-1;}
+            // if (ZoneJeu.cle && ZoneJeu.cle == 39){joueur.vitesseX=1;}
+            // if (ZoneJeu.cle && ZoneJeu.cle == 38){joueur.vitesseY=-1;}
+            // if (ZoneJeu.cle && ZoneJeu.cle == 40){joueur.vitesseY=1;}
+
+            // pour plusieurs touches à la fois :
+            if (ZoneJeu.cles && ZoneJeu.cles[37]) { joueur.vitesseX = -vitessePerso; }
+            if (ZoneJeu.cles && ZoneJeu.cles[39]) { joueur.vitesseX = vitessePerso; }
+            if (ZoneJeu.cles && ZoneJeu.cles[38]) { joueur.vitesseY = -vitessePerso; }
+            if (ZoneJeu.cles && ZoneJeu.cles[40]) { joueur.vitesseY = vitessePerso; }
+
+
+            joueur.nouvPos(); //on appelle la fonction newPos pour pouvoir modifier la position de l'élément
+            joueur.update(); //ne pas oublier de mettre à jour l'élément dessiné !
+            murHaut.update();
+            murGauche.update();
+            murBas.update();
+            murDroit.update();
+        }
+
+        // Gestion des déplacements (boutons) :
+        // function depHaut() {
+        //     joueur.vitesseY -= vitesse;
+        // }
+
+        // function depBas() {
+        //     joueur.vitesseY += vitesse;
+        // }
+
+        // function depGauche() {
+        //     joueur.vitesseX -= vitesse;
+        // }
+
+        // function depDroite() {
+        //     joueur.vitesseX += vitesse;
+        // }
+
+        //Fonction stop pour que le mouvement s'arrête lorsque l'on relâche le bouton de déplacement (si on utilise la méthode des boutons)
+
+        // function stopMouvement() {
+        //     joueur.vitesseX = 0;
+        //     joueur.vitesseY = 0;
+        // }
+
+        //désactiver le scrolling : ne fonctionne pas, à corriger !!
+
+        // left: 37, up: 38, right: 39, down: 40,
+        // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+        // var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+        // function preventDefault(e) {
+        //     e = e || window.event;
+        //     if (e.preventDefault)
+        //         e.preventDefault();
+        //     e.returnValue = false;
+        // }
+
+        // function preventDefaultForScrollKeys(e) {
+        //     if (keys[e.keyCode]) {
+        //         preventDefault(e);
+        //         return false;
+        //     }
+        // }
+
+        // function disableScroll() {
+        //     if (window.addEventListener) // older FF
+        //         window.addEventListener('DOMMouseScroll', preventDefault, false);
+        //     window.onwheel = preventDefault; // modern standard
+        //     window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+        //     window.ontouchmove = preventDefault; // mobile
+        //     document.onkeydown = preventDefaultForScrollKeys;
+        // }
+
+        // function enableScroll() {
+        //     if (window.removeEventListener)
+        //         window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        //     window.onmousewheel = document.onmousewheel = null;
+        //     window.onwheel = null;
+        //     window.ontouchmove = null;
+        //     document.onkeydown = null;
+        // }
+
+        //on détecte si le canvas est en focus
+            // si oui, on appelle la fonction enableScroll();
+            // si non, on appelle la fonction disableScroll();
+            // var jeuFocus = document.getElementById("ZoneJeu");
+            //     if (document.hasFocus()) {
+            //         alert("focus!");
+            //     } else {
+            //         alert("pas focus :(");
+            //     } 
+    </script>
+
+    <!-- contrôle avec des boutons cliquables : -->
+    <!-- <div style="text-align:center;width:480px;">
+        <button onmousedown="depHaut()" onmouseup="stopMouvement()">HAUT</button><br /><br />
+        <button onmousedown="depGauche()" onmouseup="stopMouvement()">GAUCHE</button>
+        <button onmousedown="depDroite()" onmouseup="stopMouvement()">DROITE</button><br /><br />
+        <button onmousedown="depBas()" onmouseup="stopMouvement()">BAS</button>
+    </div> -->
+
+    <p>
+Si l'épaisseur des murs est supérieure à 1px, l'affichage peut ramer (pour une raison qui m'échappe), appuyer sur les touches du clavier permet de régler le soucis.
+</p>
+
+<footer>
+    Crédits :
+    <ul>
+        <li>Fantôme par m.l.nepenthes.
+        <li>Code par Télumire (suivant <a href="https://www.w3schools.com/graphics/game_intro.asp">ce tutoriel de w3schools</a>).
+    </ul>
+</footer>
+</body>
+</html>
+
+
+<!-- Pour d'autres modes de déplacement, voir ce tuto : https://www.w3schools.com/graphics/game_controllers.asp -->
