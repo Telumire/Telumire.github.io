@@ -267,6 +267,8 @@ Error message and password prompt
 
 <li>$:/SaveToGitHub/GithubPageUrl</li>
 
+<li>$:/SaveToGitHub/GithubPageUrlFilter</li>
+
 <li>$:/SaveToGitHub/Hint</li>
 
 <li>$:/SaveToGitHub/publish</li>
@@ -507,6 +509,8 @@ Error message and password prompt
 
 <li>$:/transclude/edit/style</li>
 
+<li>Créer un layout custom pour le blog</li>
+
 <li>Export this wiki settings</li>
 
 <li>Modified this session</li>
@@ -517,7 +521,9 @@ Error message and password prompt
 
 <li>task</li>
 
-<li>Welcome !</li>
+<li>Voir comment implémenter un switch anglais/fr</li>
+
+<li>Welcome</li>
 
 </ul>
 </p>
@@ -588,7 +594,7 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div bag="default" created="20210908152838707" creator="Telumire" modified="20210927115355415" modifier="Telumire" revision="0" title="$:/config/AutoSave">
+<div bag="default" created="20210908152838707" creator="Telumire" modified="20210927161228916" modifier="Telumire" revision="0" title="$:/config/AutoSave">
 <pre>no</pre>
 </div>
 <div bag="default" created="20210908160520283" modified="20210908160521340" revision="0" title="$:/config/flibbles/relink-titles/relink/$:/plugins/flibbles/relink-titles/rules/directory">
@@ -10575,7 +10581,7 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/telmiger/details]]</pre>
+# [[$:/ThemeTweaks/SwitchPalette/button]]</pre>
 </div>
 <div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
@@ -10583,7 +10589,7 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 <div bag="default" created="20210921232125203" creator="Telumire" modified="20210927115345846" modifier="Telumire" revision="0" title="$:/language/ControlPanel/Saving/GitService/CommitMessage">
 <pre>Hello world</pre>
 </div>
-<div bag="default" created="20210906233615248" modified="20210923004941065" revision="0" tags="" title="$:/palette">
+<div bag="default" created="20210906233615248" creator="Telumire" modified="20210927160626918" modifier="Telumire" revision="0" tags="" title="$:/palette">
 <pre>$:/palettes/GruvboxDark</pre>
 </div>
 <div bag="default" created="20210907010728393" description="A clean white palette to let you focus" modified="20210923004503310" name="Blanca" revision="0" tags="$:/tags/Palette $:/ThemeTweaks/SwitchPalette/tags PalettePreview" title="$:/palettes/Blanca" type="application/x-tiddler-dictionary">
@@ -10828,7 +10834,7 @@ wikilist-button-reveal: &lt;&lt;colour sidebar-tiddler-link-foreground-hover&gt;
 wikilist-button-reveal-hover: &lt;&lt;colour message-background&gt;&gt;
 </pre>
 </div>
-<div author="Thomas Elmiger" bag="default" created="20210907010813968" description="Delightful, soft darkness." modified="20210907112251239" name="Twilight" revision="0" tags="$:/tags/Palette $:/ThemeTweaks/SwitchPalette/tags" title="$:/palettes/Twilight" type="application/x-tiddler-dictionary">
+<div author="Thomas Elmiger" bag="default" created="20210907010813968" creator="Telumire" description="Delightful, soft darkness." modified="20210927154952997" modifier="Telumire" name="Twilight" revision="0" tags="$:/tags/Palette" title="$:/palettes/Twilight" type="application/x-tiddler-dictionary">
 <pre>alert-background: rgb(255, 255, 102)
 alert-border: rgb(232, 232, 125)
 alert-highlight: rgb(255, 51, 51)
@@ -13944,12 +13950,17 @@ width:100%;
 
 &lt;$edit-text class=&quot;commit-message&quot; tiddler=&quot;$:/language/ControlPanel/Saving/GitService/CommitMessage&quot; default=&quot;Saved by TiddlyWiki&quot; tag=&quot;textarea&quot; class=&quot;tc-edit-texteditor&quot;/&gt;</pre>
 </div>
-<div bag="default" created="20210922004120766" modified="20210923192543220" revision="0" tags="$:/SaveToGitHub/Settings $:/SaveToGitHub" title="$:/SaveToGitHub/GithubPageUrl">
-<pre>&lt;$set name=GithubPageUrl filter=&quot;[{$:/GitHub/Repo}removeprefix{$:/SaveToGitHub/private/username}removeprefix[/]addprefix[.github.io/]addprefix{$:/SaveToGitHub/private/username}addprefix[https://]addsuffix{$:/GitHub/Path}addsuffix{$:/GitHub/Filename}]&quot;&gt;
-
-&lt;&lt;GithubPageUrl&gt;&gt;
-
-&lt;/$set&gt;</pre>
+<div bag="default" created="20210927151726391" creator="Telumire" modified="20210927154813977" modifier="Telumire" revision="0" tags="$:/SaveToGitHub/Settings $:/SaveToGitHub" title="$:/SaveToGitHub/GithubPageUrl">
+<pre>&lt;a href={{{ [subfilter{$:/SaveToGitHub/GithubPageUrlFilter}] }}}&gt;&lt;$text text={{{ [subfilter{$:/SaveToGitHub/GithubPageUrlFilter}] }}}&gt;&lt;/a&gt;</pre>
+</div>
+<div bag="default" created="20210922004120766" modified="20210927152056821" revision="0" tags="$:/SaveToGitHub/Settings $:/SaveToGitHub" title="$:/SaveToGitHub/GithubPageUrlFilter">
+<pre>[[https://]]
+[{$:/SaveToGitHub/private/username}]
+[[.github.io]]
+[{$:/GitHub/Repo}removeprefix{$:/SaveToGitHub/private/username}]
+[{$:/GitHub/Path}]
+[{$:/GitHub/Filename}]
++[join[]]</pre>
 </div>
 <div bag="default" created="20210806021302793" modified="20210813030810346" revision="0" tags="$:/SaveToGitHub" title="$:/SaveToGitHub/Hint" type="text/plain">
 <pre>save to GitHub</pre>
@@ -14178,7 +14189,7 @@ width: 2em;
 height: auto;
 }</pre>
 </div>
-<div bag="default" caption="system image" created="20210911212256922" modified="20210922021302590" revision="0" tags="$:/tags/SideBar $:/showInfo/search $:/showInfo" title="$:/showInfo/search/SystemImage">
+<div bag="default" caption="system image" created="20210911212256922" creator="Telumire" modified="20210927160604857" modifier="Telumire" revision="0" tags="$:/showInfo/search $:/showInfo" title="$:/showInfo/search/SystemImage">
 <pre>List of all system images (ie, tiddlers tagged {{$:/tags/Image||$:/core/ui/TagTemplate}}). Click on an icon to copy its title !
 
 &lt;$set name=search-list filter=&quot;[all[tiddlers+shadows]tag[$:/tags/Image]]&quot; &gt;
@@ -14404,9 +14415,9 @@ padding:.5em;
 <div bag="default" created="20210906233115255" creator="Telumire" modified="20210927100749836" modifier="Telumire" revision="0" tags="" title="$:/SiteSubtitle">
 <pre>Here's the stuff I do</pre>
 </div>
-<div bag="default" created="20210906233004035" creator="Telumire" modified="20210927100719093" modifier="Telumire" revision="0" tags="$:/SiteTitle" title="$:/SiteTitle">
+<div bag="default" created="20210906233004035" creator="Telumire" modified="20210927154854270" modifier="Telumire" revision="0" tags="$:/SiteTitle" title="$:/SiteTitle">
 <pre>\whitespace trim
-&lt;a href={{{[{$:/GitHub/Repo}removeprefix{$:/SaveToGitHub/private/username}removeprefix[/]addprefix[.github.io/]addprefix{$:/SaveToGitHub/private/username}addprefix[https://]addsuffix{$:/GitHub/Path}addsuffix{$:/GitHub/Filename}]}}} class=&quot;site-title-link no-icon&quot;&gt;Telumire's blog&lt;/a&gt;</pre>
+&lt;a href={{{[subfilter{$:/SaveToGitHub/GithubPageUrlFilter}]}}} class=&quot;site-title-link no-icon&quot;&gt;Telumire's blog&lt;/a&gt;</pre>
 </div>
 <div bag="default" created="20210922040756912" modified="20210922040850025" revision="0" tags="$:/SiteTitle $:/tags/Stylesheet" title="$:/SiteTitle/style">
 <pre>&lt;pre&gt;
@@ -14509,10 +14520,10 @@ padding-bottom: 10px;
 <div created="20210927093445210" modified="20210927093445210" title="$:/state/plugin-info-575017246-$:/plugins/danielo515/2click2edit--543222777">
 <pre>contents</pre>
 </div>
-<div created="20210923165147348" modified="20210923201245631" title="$:/state/showeditpreview">
+<div created="20210923165147348" creator="Telumire" modified="20210927155912458" modifier="Telumire" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
-<div created="20210923195039440" creator="Telumire" modified="20210927115224311" modifier="Telumire" title="$:/state/sidebar">
+<div created="20210923195039440" creator="Telumire" modified="20210927161136210" modifier="Telumire" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20210927100913125" creator="Telumire" modified="20210927100913125" modifier="Telumire" title="$:/state/tab--103319216">
@@ -14530,8 +14541,8 @@ padding-bottom: 10px;
 <div created="20210927100911854" creator="Telumire" modified="20210927100911854" modifier="Telumire" title="$:/state/tab-607722857">
 <pre>$:/plugins/kookma/commander/field/ui</pre>
 </div>
-<div created="20210923162159858" creator="Telumire" modified="20210927100940933" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
-<pre>$:/SaveToGitHub/Settings</pre>
+<div created="20210923162159858" creator="Telumire" modified="20210927160618447" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
+<pre>$:/Tasker/Kanban</pre>
 </div>
 <div created="20210923190359522" modified="20210923190415229" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
@@ -14551,7 +14562,7 @@ padding-bottom: 10px;
 <div bag="default" created="20210927100542533" creator="T" modified="20210927100559183" modifier="elumire" revision="1" title="$:/status/UserName">
 <pre>Telumire</pre>
 </div>
-<div list="[[Welcome !]]" title="$:/StoryList">
+<div list="Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div bag="default" created="20210923144105193" list="$:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/home $:/core/ui/Buttons/close-all $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/plugins/kookma/commander/buttons/pagecontrol $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/SaveToGitHub/Button $:/ThemeTweaks/SwitchPalette/button" modified="20210923144105362" revision="0" title="$:/tags/PageControls" type="text/vnd.tiddlywiki">
@@ -15580,43 +15591,35 @@ fill={{{[&lt;fill&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;match[in
 <div bag="default" created="20210811020158840" modified="20210923184724058" revision="0" tagging="after" tags="$:/ThemeTweaks/SwitchPalette $:/ThemeTweaks" title="$:/ThemeTweaks/SwitchPalette">
 <pre></pre>
 </div>
-<div bag="default" caption="{{$:/ThemeTweaks/SwitchPalette/image}} Switch palette" created="20201210171047824" description="Choose a colour palette" modified="20210927100919190" modifier="Telumire" revision="0" source="https://nicolas.petton.fr/tw/notebook.html" tags="$:/tags/PageControls $:/ThemeTweaks/SwitchPalette" title="$:/ThemeTweaks/SwitchPalette/button" type="text/vnd.tiddlywiki">
+<div bag="default" caption="{{$:/ThemeTweaks/SwitchPalette/image}} Switch palette" created="20201210171047824" creator="Telumire" description="Choose a colour palette" modified="20210927160620911" modifier="Telumire" revision="0" source="[[modified from https://nicolas.petton.fr/tw/notebook.html]]" tags="$:/tags/PageControls $:/ThemeTweaks/SwitchPalette" title="$:/ThemeTweaks/SwitchPalette/button" type="text/vnd.tiddlywiki">
 <pre>\whitespace trim
-&lt;$vars
-    palettes=&quot;[all[tiddlers+shadows]tag[$:/ThemeTweaks/SwitchPalette/tags]]&quot;
-    popupTiddler=&lt;&lt;qualify &quot;$:/state/palette-dropdown&quot;&gt;&gt;
-  &gt;
-    &lt;$button
-      popup=&lt;&lt;popupTiddler&gt;&gt;
-      tooltip=&quot;Switch colours&quot;
-      aria-label=&quot;Switch colours&quot;
-      class=&lt;&lt;tv-config-toolbar-class&gt;&gt;
+&lt;$vars 
+palettes=&quot;[all[tiddlers+shadows]tag[$:/ThemeTweaks/SwitchPalette/tags]]&quot; 
+popupTiddler=&lt;&lt;qualify &quot;$:/state/palette-dropdown&quot;&gt;&gt;
+&gt;
+    &lt;$button popup=&lt;&lt;popupTiddler&gt;&gt;
+        tooltip=&quot;Switch colours&quot;
+        aria-label=&quot;Switch colours&quot;
+        class=&lt;&lt;tv-config-toolbar-class&gt;&gt;
     &gt;
-      &lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
-	{{$:/ThemeTweaks/SwitchPalette/image}}
-      &lt;/$list&gt;
-
-      &lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
-	&lt;span class=&quot;tc-btn-text&quot;&gt;Switch colours&lt;/span&gt;
-      &lt;/$list&gt;
-
-      &lt;$reveal state=&lt;&lt;popupTiddler&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot; class=&quot;tc-drop-down&quot;&gt;
-	&lt;$list filter=&lt;&lt;palettes&gt;&gt;&gt;
-	  &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-      &lt;$list filter=&quot;[&lt;currentTiddler&gt;match{$:/palette}]&quot;&gt;
-	    &lt;li&gt;{{!!name}}&lt;/li&gt;
-     &lt;/$list&gt;
-      &lt;$list filter=&quot;[&lt;currentTiddler&gt;!match{$:/palette}]&quot;&gt;
-	    {{!!name}}
-     &lt;/$list&gt;
-
-	    &lt;$action-setfield $tiddler=&quot;$:/palette&quot; text={{!!title}}/&gt;
-	  &lt;/$button&gt;
-	&lt;/$list&gt;
-      &lt;/$reveal&gt;
-
+    &lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;{{$:/ThemeTweaks/SwitchPalette/image}}&lt;/$list&gt;
+    &lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;&lt;span class=&quot;tc-btn-text&quot;&gt;Switch colours&lt;/span&gt;&lt;/$list&gt;
+    &lt;$reveal default={{{ [subfilter:&lt;palettes&gt;count[]] }}} type=&quot;gt&quot; text=&quot;2&quot;&gt;
+            &lt;$reveal state=&lt;&lt;popupTiddler&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot; class=&quot;tc-drop-down&quot;&gt;
+                &lt;$list filter=&lt;&lt;palettes&gt;&gt;&gt;
+                    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+                        &lt;$list filter=&quot;[&lt;currentTiddler&gt;match{$:/palette}]&quot;&gt;&lt;li&gt;{{!!name}}&lt;/li&gt;&lt;/$list&gt;
+                        &lt;$list filter=&quot;[&lt;currentTiddler&gt;!match{$:/palette}]&quot;&gt;{{!!name}}&lt;/$list&gt;
+                        &lt;$action-setfield $tiddler=&quot;$:/palette&quot; text={{!!title}} /&gt;
+                    &lt;/$button&gt;
+                &lt;/$list&gt;
+            &lt;/$reveal&gt;
+        &lt;/$reveal&gt;
+        &lt;$reveal default={{{ [subfilter:&lt;palettes&gt;count[]] }}} type=&quot;lteq&quot; text=&quot;2&quot;&gt;
+            &lt;$action-setfield $tiddler=&quot;$:/palette&quot; text={{{ [subfilter:&lt;palettes&gt;!match{$:/palette}] }}} /&gt;
+        &lt;/$reveal&gt;
     &lt;/$button&gt;
-  &lt;/$vars&gt;</pre>
+&lt;/$vars&gt;</pre>
 </div>
 <div bag="default" created="20201210170859810" modified="20210907112503276" revision="0" tags="$:/ThemeTweaks/SwitchPalette" title="$:/ThemeTweaks/SwitchPalette/image" type="text/vnd.tiddlywiki">
 <pre>&lt;svg width=&quot;20px&quot; height=&quot;20px&quot; viewBox=&quot;0 0 16 16&quot; class=&quot;bi bi-circle-half&quot; fill=&quot;currentColor&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
@@ -15684,6 +15687,9 @@ span.transclude-edit:hover .transclude-edit-button{
 	fill:&lt;&lt;color foreground&gt;&gt;;
 }</pre>
 </div>
+<div created="20210927161203818" creator="Telumire" modified="20210927161219601" modifier="Telumire" tags="" task="todo" title="Créer un layout custom pour le blog">
+<pre></pre>
+</div>
 <div bag="default" created="20210922215428269" description="todo : add the filter" filter="" modified="20210922220333450" revision="0" tags="" title="Export this wiki settings">
 <pre>&lt;$macrocall $name=&quot;openTiddlers&quot; filter={{!!filter}} text=&quot;Drag to import the settings&quot;/&gt;</pre>
 </div>
@@ -15694,7 +15700,7 @@ span.transclude-edit:hover .transclude-edit-button{
 &lt;/$list&gt;
 &lt;/ul&gt;</pre>
 </div>
-<div bag="default" created="20210922223508420" list="[[Welcome !]] $:/TiddlyTweaks [[Modified this session]]" modified="20210927100409474" revision="0" title="pinned">
+<div bag="default" created="20210922223508420" list="Welcome $:/TiddlyTweaks [[Modified this session]]" modified="20210927155819259" modifier="Telumire" revision="0" title="pinned">
 <pre></pre>
 </div>
 <div created="20210927094257177" modified="20210927094628576" tags="$:/tags/Stylesheet" title="Style details">
@@ -15711,8 +15717,29 @@ details summary {
 <div bag="default" created="20210907001351123" list="$:/showInfo/search/template $:/ThemeTweaks/SwitchPalette/button $:/Tasker/ui/Buttons/tasker" modified="20210922211459578" revision="0" title="task">
 <pre></pre>
 </div>
-<div bag="default" created="20210908150922338" creator="Telumire" modified="20210927115328651" modifier="Telumire" revision="0" tags="pinned" title="Welcome !">
-<pre>Hello world</pre>
+<div created="20210927161140419" creator="Telumire" modified="20210927161159430" modifier="Telumire" tags="" task="todo" title="Voir comment implémenter un switch anglais/fr">
+<pre></pre>
+</div>
+<div bag="default" created="20210908150922338" creator="Telumire" modified="20210927161132002" modifier="Telumire" revision="0" tags="pinned" title="Welcome">
+<pre>Hello there, and welcome. This is Telumire's blog - or at least, it will be ! For now, this is a wip.
+In the meantime, you can find the ''other'' stuff I'm working on during my free time bellow :
+
+!!! My publis wikis
+
+[EN]
+
+* https://www.telumire.be/TiddlyTweaks - Tweaks I use for my wikis and various tips
+* https://curatedvideos.github.io - Interesting, hand-picked video programs to explore beyond the algorithm
+* https://www.telumire.be/Custom-Home-Page - A custom homepage tiddlywiki edition (WIP)
+
+[FR]
+
+* https://perlesvideoludiques.github.io - des vidéos intéressantes triées sur le volet
+* https://genarium.github.io - mon outil pour le jdr (wip)
+* https://frontenddevweb.github.io - suivis de mon apprentissage d'Angular
+* https://tiddlycook.github.io/ - recettes
+* https://drawesome-wiki.github.io/ - dessin
+* https://befire-fr.github.io/ - finances (attention je ne suis pas un expert !)</pre>
 </div>
 
 
