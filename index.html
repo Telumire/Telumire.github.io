@@ -159,9 +159,23 @@ Error message and password prompt
 
 <li>$:/config/Navigation/UpdateHistory</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/fold-all</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/full-screen</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/more-page-actions</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/plugins/kookma/commander/buttons/pagecontrol</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/ThemeTweaks/SwitchPalette/button</li>
 
 <li>$:/config/RelinkOnRename</li>
 
@@ -391,6 +405,8 @@ Error message and password prompt
 
 <li>$:/tags/SideBar</li>
 
+<li>$:/tags/TopRightBar</li>
+
 <li>$:/tags/ViewToolbar</li>
 
 <li>$:/Tasker</li>
@@ -577,7 +593,7 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div bag="default" created="20210908152838707" creator="Telumire" modified="20210927230850264" modifier="Telumire" revision="0" title="$:/config/AutoSave">
+<div bag="default" created="20210908152838707" creator="Telumire" modified="20210927234551230" modifier="Telumire" revision="0" title="$:/config/AutoSave">
 <pre>no</pre>
 </div>
 <div bag="default" created="20210908160520283" modified="20210908160521340" revision="0" title="$:/config/flibbles/relink-titles/relink/$:/plugins/flibbles/relink-titles/rules/directory">
@@ -595,11 +611,32 @@ Error message and password prompt
 <div bag="default" created="20210906233509030" modified="20210906235542672" revision="0" title="$:/config/Navigation/UpdateHistory">
 <pre>yes</pre>
 </div>
+<div created="20210927234521488" creator="Telumire" modified="20210927234539552" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
+<pre>hide</pre>
+</div>
+<div created="20210927234457425" creator="Telumire" modified="20210927234508382" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel">
+<pre>hide</pre>
+</div>
+<div created="20210927234543325" creator="Telumire" modified="20210927234545404" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/fold-all">
+<pre>hide</pre>
+</div>
+<div created="20210927234505761" creator="Telumire" modified="20210927234505761" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/full-screen">
+<pre>show</pre>
+</div>
 <div bag="default" created="20210906233234586" modified="20210906235542673" revision="0" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
 <div bag="default" created="20210906233238783" modified="20210906235542673" revision="0" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/more-page-actions">
 <pre>show</pre>
+</div>
+<div created="20210927234429517" creator="Telumire" modified="20210927234429517" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler">
+<pre>hide</pre>
+</div>
+<div created="20210927234426860" creator="Telumire" modified="20210927234426860" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/plugins/kookma/commander/buttons/pagecontrol">
+<pre>hide</pre>
+</div>
+<div created="20210927234424622" creator="Telumire" modified="20210927234424622" modifier="Telumire" title="$:/config/PageControlButtons/Visibility/$:/ThemeTweaks/SwitchPalette/button">
+<pre>hide</pre>
 </div>
 <div bag="default" created="20210907001718660" modified="20210907162326236" revision="0" title="$:/config/RelinkOnRename">
 <pre>yes</pre>
@@ -10564,7 +10601,7 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/ThemeTweaks/style/fonts]]</pre>
+# [[$:/ThemeTweaks/SwitchPalette/button]]</pre>
 </div>
 <div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
@@ -14491,8 +14528,8 @@ padding-bottom: 10px;
 &lt;/$reveal&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20210927214205406" creator="Telumire" modified="20210927214217083" modifier="Telumire" title="$:/state/advancedsearch/currentTab">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div created="20210927214205406" creator="Telumire" modified="20210927232439923" modifier="Telumire" title="$:/state/advancedsearch/currentTab">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20210927100916815" creator="Telumire" modified="20210927100916815" modifier="Telumire" title="$:/state/commander/log-tiddler">
 <pre>$:/temp/commander/logs/tid-1</pre>
@@ -14509,32 +14546,32 @@ padding-bottom: 10px;
 <div created="20210923165147348" creator="Telumire" modified="20210927155912458" modifier="Telumire" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
-<div created="20210923195039440" creator="Telumire" modified="20210927230553976" modifier="Telumire" title="$:/state/sidebar">
+<div created="20210923195039440" creator="Telumire" modified="20210927233023875" modifier="Telumire" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20210927100913125" creator="Telumire" modified="20210927100913125" modifier="Telumire" title="$:/state/tab--103319216">
 <pre>$:/plugins/kookma/commander/field/uicomp/remove-fields</pre>
 </div>
-<div created="20210927214205406" creator="Telumire" modified="20210927214217083" modifier="Telumire" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div created="20210927214205406" creator="Telumire" modified="20210927232439923" modifier="Telumire" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
-<div created="20210923190323173" modified="20210923201121052" title="$:/state/tab--1963855381">
-<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
+<div created="20210923190323173" creator="Telumire" modified="20210927234415431" modifier="Telumire" title="$:/state/tab--1963855381">
+<pre>$:/core/ui/ControlPanel/Toolbars</pre>
 </div>
 <div created="20210927100526917" modified="20210927100539539" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
-<div bag="default" created="20210923145356267" modified="20210927100538538" revision="1" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div bag="default" created="20210923145356267" creator="Telumire" modified="20210927234146280" modifier="Telumire" revision="1" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20210927100911854" creator="Telumire" modified="20210927100911854" modifier="Telumire" title="$:/state/tab-607722857">
 <pre>$:/plugins/kookma/commander/field/ui</pre>
 </div>
-<div created="20210923162159858" creator="Telumire" modified="20210927225829795" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210923162159858" creator="Telumire" modified="20210927234236281" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
-<div created="20210923190359522" modified="20210923190415229" title="$:/state/tabs/controlpanel/toolbars-1345989671">
-<pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
+<div created="20210923190359522" creator="Telumire" modified="20210927234419312" modifier="Telumire" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
 <div bag="default" revision="1" title="$:/status/IsAnonymous">
 <pre>yes</pre>
@@ -14551,13 +14588,16 @@ padding-bottom: 10px;
 <div bag="default" created="20210927100542533" creator="T" modified="20210927100559183" modifier="elumire" revision="1" title="$:/status/UserName">
 <pre>Telumire</pre>
 </div>
-<div created="20210927230155430" creator="Telumire" list="$:/ThemeTweaks/style/fonts" modified="20210927230155430" modifier="Telumire" title="$:/StoryList">
+<div list="Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
-<div bag="default" created="20210923144105193" list="$:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/home $:/core/ui/Buttons/close-all $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/plugins/kookma/commander/buttons/pagecontrol $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/SaveToGitHub/Button $:/ThemeTweaks/SwitchPalette/button" modified="20210923144105362" revision="0" title="$:/tags/PageControls" type="text/vnd.tiddlywiki">
+<div bag="default" created="20210923144105193" creator="Telumire" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/close-all $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/plugins/kookma/commander/buttons/pagecontrol $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/save-wiki $:/SaveToGitHub/Button $:/ThemeTweaks/SwitchPalette/button $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/more-page-actions" modified="20210927234514405" modifier="Telumire" revision="0" title="$:/tags/PageControls" type="text/vnd.tiddlywiki">
 <pre></pre>
 </div>
 <div bag="default" created="20210907161144910" list="$:/core/ui/SideBar/Open $:/core/ui/SideBar/Recent $:/core/ui/SideBar/Tools $:/core/ui/SideBar/More $:/SaveToGitHub/Settings $:/Tasker/Kanban $:/About" modified="20210907161258843" revision="0" title="$:/tags/SideBar">
+<pre></pre>
+</div>
+<div created="20210927234221806" creator="Telumire" list="$:/ThemeTweaks/SwitchPalette/button $:/core/ui/TopBar/menu" modified="20210927234225275" modifier="Telumire" tagging="after" title="$:/tags/TopRightBar">
 <pre></pre>
 </div>
 <div bag="default" created="20210922000559330" list="$:/core/ui/Buttons/more-tiddler-actions $:/spoiler/Button $:/SaveToGitHub/Button/Private $:/SaveToGitHub/Button/GitHubPermalink $:/SaveToGitHub/Button/GitHubPermaView $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/fold-bar $:/core/ui/Buttons/edit $:/Tasker/ui/Buttons/tasker $:/ThemeTweaks/button/right_story" modified="20210922031727826" revision="0" title="$:/tags/ViewToolbar">
@@ -15540,7 +15580,7 @@ fill={{{[&lt;fill&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;match[in
 <div bag="default" created="20210811020158840" modified="20210923184724058" revision="0" tagging="after" tags="$:/ThemeTweaks/SwitchPalette $:/ThemeTweaks" title="$:/ThemeTweaks/SwitchPalette">
 <pre></pre>
 </div>
-<div bag="default" caption="{{$:/ThemeTweaks/SwitchPalette/image}} Switch palette" created="20201210171047824" creator="Telumire" description="Choose a colour palette" modified="20210927160620911" modifier="Telumire" revision="0" source="[[modified from https://nicolas.petton.fr/tw/notebook.html]]" tags="$:/tags/PageControls $:/ThemeTweaks/SwitchPalette" title="$:/ThemeTweaks/SwitchPalette/button" type="text/vnd.tiddlywiki">
+<div bag="default" caption="{{$:/ThemeTweaks/SwitchPalette/image}} Switch palette" created="20201210171047824" description="Choose a colour palette" modified="20210927233444384" revision="0" source="[[modified from https://nicolas.petton.fr/tw/notebook.html]]" tags="$:/tags/PageControls $:/ThemeTweaks/SwitchPalette $:/tags/TopRightBar" task="doing" title="$:/ThemeTweaks/SwitchPalette/button" type="text/vnd.tiddlywiki">
 <pre>\whitespace trim
 &lt;$vars 
 palettes=&quot;[all[tiddlers+shadows]tag[$:/ThemeTweaks/SwitchPalette/tags]]&quot; 
@@ -15669,11 +15709,11 @@ details summary {
 <div created="20210927161140419" creator="Telumire" modified="20210927161159430" modifier="Telumire" tags="" task="todo" title="Voir comment implémenter un switch anglais/fr">
 <pre></pre>
 </div>
-<div bag="default" created="20210908150922338" creator="Telumire" modified="20210927161132002" modifier="Telumire" revision="0" tags="pinned" title="Welcome">
+<div bag="default" created="20210908150922338" creator="Telumire" modified="20210927230937758" modifier="Telumire" revision="0" tags="pinned" title="Welcome">
 <pre>Hello there, and welcome. This is Telumire's blog - or at least, it will be ! For now, this is a wip.
 In the meantime, you can find the ''other'' stuff I'm working on during my free time bellow :
 
-!!! My publis wikis
+!!! My publics wikis
 
 [EN]
 
