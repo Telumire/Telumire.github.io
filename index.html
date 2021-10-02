@@ -185,11 +185,15 @@ Error message and password prompt
 
 <li>$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/fold-bar</li>
 
+<li>$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/permalink</li>
+
 <li>$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/GitHubPermalink</li>
 
 <li>$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/GitHubPermaView</li>
 
 <li>$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/Private</li>
+
+<li>$:/config/ViewToolbarButtons/Visibility/$:/spoiler/Button</li>
 
 <li>$:/config/ViewToolbarButtons/Visibility/$:/Tasker/ui/Buttons/tasker</li>
 
@@ -210,8 +214,6 @@ Error message and password prompt
 <li>$:/edit-inline</li>
 
 <li>$:/favicon.ico</li>
-
-<li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
 
@@ -299,6 +301,8 @@ Error message and password prompt
 
 <li>$:/SaveToGitHub/style/site_title</li>
 
+<li>$:/SaveToGitHub/style/title</li>
+
 <li>$:/showInfo</li>
 
 <li>$:/showInfo/description/template</li>
@@ -369,6 +373,8 @@ Error message and password prompt
 
 <li>$:/state/plugin-info-575017246-$:/plugins/danielo515/2click2edit--543222777</li>
 
+<li>$:/state/search/currentTab</li>
+
 <li>$:/state/showeditpreview</li>
 
 <li>$:/state/sidebar</li>
@@ -384,6 +390,8 @@ Error message and password prompt
 <li>$:/state/tab-1749438307</li>
 
 <li>$:/state/tab-607722857</li>
+
+<li>$:/state/tab/search-results/sidebar</li>
 
 <li>$:/state/tab/sidebar--595412856</li>
 
@@ -465,6 +473,10 @@ Error message and password prompt
 
 <li>$:/ThemeTweaks</li>
 
+<li>$:/ThemeTweaks/BottomRightBar</li>
+
+<li>$:/ThemeTweaks/BottomRightBar/style</li>
+
 <li>$:/ThemeTweaks/button/right_story</li>
 
 <li>$:/ThemeTweaks/caption/right_story</li>
@@ -527,9 +539,13 @@ Error message and password prompt
 
 <li>$:/transclude/edit/style</li>
 
+<li>Context Search</li>
+
 <li>Créer un layout custom pour le blog</li>
 
 <li>Export this wiki settings</li>
+
+<li>List of interesting TiddlyWikis</li>
 
 <li>Modified this session</li>
 
@@ -593,7 +609,7 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div bag="default" created="20210908152838707" creator="Telumire" modified="20210927234817014" modifier="Telumire" revision="0" title="$:/config/AutoSave">
+<div bag="default" created="20210908152838707" creator="Telumire" modified="20211002223518882" modifier="Telumire" revision="0" title="$:/config/AutoSave">
 <pre>no</pre>
 </div>
 <div bag="default" created="20210908160520283" modified="20210908160521340" revision="0" title="$:/config/flibbles/relink-titles/relink/$:/plugins/flibbles/relink-titles/rules/directory">
@@ -650,17 +666,23 @@ Error message and password prompt
 <div bag="default" created="20210907010247310" modified="20210907010247310" revision="0" title="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/fold-bar">
 <pre>show</pre>
 </div>
+<div created="20211002223224999" creator="Telumire" modified="20211002223224999" modifier="Telumire" title="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/permalink">
+<pre>show</pre>
+</div>
 <div bag="default" created="20210922000539841" modified="20210923190330317" revision="0" title="$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/GitHubPermalink">
 <pre>hide</pre>
 </div>
 <div bag="default" created="20210922001755954" modified="20210923190332488" revision="0" title="$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/GitHubPermaView">
 <pre>hide</pre>
 </div>
-<div bag="default" created="20210922023330100" modified="20210923190340060" revision="0" title="$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/Private">
+<div bag="default" created="20210922023330100" creator="Telumire" modified="20211002223122604" modifier="Telumire" revision="0" title="$:/config/ViewToolbarButtons/Visibility/$:/SaveToGitHub/Button/Private">
+<pre>show</pre>
+</div>
+<div created="20211002223131268" creator="Telumire" modified="20211002223131268" modifier="Telumire" title="$:/config/ViewToolbarButtons/Visibility/$:/spoiler/Button">
 <pre>hide</pre>
 </div>
-<div created="20210923190343412" modified="20210923190352177" title="$:/config/ViewToolbarButtons/Visibility/$:/Tasker/ui/Buttons/tasker">
-<pre>show</pre>
+<div created="20210923190343412" creator="Telumire" modified="20211002223355191" modifier="Telumire" title="$:/config/ViewToolbarButtons/Visibility/$:/Tasker/ui/Buttons/tasker">
+<pre>hide</pre>
 </div>
 <div bag="default" created="20210906233330670" modified="20210907003013911" revision="0" title="$:/config/WikiParserRules/Inline/wikilink">
 <pre>enable</pre>
@@ -10598,11 +10620,6 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 <div created="20210923164244623" modified="20210923201339940" tags="" title="$:/favicon.ico" type="text/vnd.tiddlywiki">
 <pre>&lt;$vars svg={{$:/core/images/theme-button}} fill={{{[&lt;fill&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;match[inherit]then[foreground]else&lt;currentTiddler&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;else&lt;currentTiddler&gt;]:reduce[&lt;currentTiddler&gt;is[blank]then[$:/palettes/Vanilla]getindex[foreground]else&lt;currentTiddler&gt;]+[search-replace[#],[#]]}}}&gt;&lt;$text text={{{[[&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;]][&lt;fill&gt;][[&quot; width=&quot;22pt&quot; height=&quot;22pt&quot;&gt;]][&lt;svg&gt;][[&lt;/svg&gt;]]+[join[]]}}} /&gt;&lt;/$vars&gt;</pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>The following tiddlers were imported:
-
-# [[$:/ThemeTweaks/SwitchPalette/button]]</pre>
-</div>
 <div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -14143,6 +14160,24 @@ background: center / contain no-repeat var(`--`url);
 &lt;/pre&gt;
 &lt;/$reveal&gt;</pre>
 </div>
+<div created="20210930142431580" modified="20210930142513908" tags="$:/SaveToGitHub $:/tags/Stylesheet" title="$:/SaveToGitHub/style/title">
+<pre>&lt;$reveal default={{{[{$:/SaveToGitHub/private/state}match[yes]]}}} type=&quot;match&quot; text=&quot;yes&quot;&gt;
+
+&lt;pre&gt;
+
+/*Display the lock icon on the private tiddler title if $:/SaveToGitHub/private/state is set to private*/
+[data-tags*=&quot;private&quot;] .tc-title:before{
+content:&quot; &quot;;
+height:  0.72em;width: 0.72em;
+display:inline-flex;
+margin-right: .2ch;
+background: center / contain no-repeat var(`--`url);
+&lt;$vars svg={{$:/core/images/locked-padlock}} fill=&quot;primary&quot;&gt; {{||$:/ThemeTweaks/svg/url}} &lt;/$vars&gt;
+}
+&lt;/pre&gt;
+
+&lt;/$reveal&gt;</pre>
+</div>
 <div bag="default" created="20210907002326014" description="Tiddlers that shows a bit more information and utilities to ease search." modified="20210922204500829" revision="0" tagging="after" tags="$:/showInfo $:/TiddlyTweaks" title="$:/showInfo">
 <pre></pre>
 </div>
@@ -14543,10 +14578,13 @@ padding-bottom: 10px;
 <div created="20210927093445210" modified="20210927093445210" title="$:/state/plugin-info-575017246-$:/plugins/danielo515/2click2edit--543222777">
 <pre>contents</pre>
 </div>
+<div created="20210930203213990" creator="Telumire" modified="20210930203218108" modifier="Telumire" title="$:/state/search/currentTab">
+<pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
+</div>
 <div created="20210923165147348" creator="Telumire" modified="20210927155912458" modifier="Telumire" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
-<div created="20210923195039440" creator="Telumire" modified="20210927234813887" modifier="Telumire" title="$:/state/sidebar">
+<div created="20210923195039440" creator="Telumire" modified="20211002222551767" modifier="Telumire" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20210927100913125" creator="Telumire" modified="20210927100913125" modifier="Telumire" title="$:/state/tab--103319216">
@@ -14561,17 +14599,20 @@ padding-bottom: 10px;
 <div created="20210927100526917" modified="20210927100539539" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
-<div bag="default" created="20210923145356267" creator="Telumire" modified="20210927234146280" modifier="Telumire" revision="1" title="$:/state/tab-1749438307">
+<div bag="default" created="20210923145356267" creator="Telumire" modified="20211002223113966" modifier="Telumire" revision="1" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20210927100911854" creator="Telumire" modified="20210927100911854" modifier="Telumire" title="$:/state/tab-607722857">
 <pre>$:/plugins/kookma/commander/field/ui</pre>
 </div>
-<div created="20210923162159858" creator="Telumire" modified="20210927234236281" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
+<div created="20210930203213990" creator="Telumire" modified="20210930203218108" modifier="Telumire" title="$:/state/tab/search-results/sidebar">
+<pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
+</div>
+<div created="20210923162159858" creator="Telumire" modified="20211002223423980" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Open</pre>
 </div>
-<div created="20210923190359522" creator="Telumire" modified="20210927234419312" modifier="Telumire" title="$:/state/tabs/controlpanel/toolbars-1345989671">
-<pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
+<div created="20210923190359522" creator="Telumire" modified="20211002223118364" modifier="Telumire" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
 <div bag="default" revision="1" title="$:/status/IsAnonymous">
 <pre>yes</pre>
@@ -14600,7 +14641,7 @@ padding-bottom: 10px;
 <div created="20210927234221806" creator="Telumire" list="$:/ThemeTweaks/SwitchPalette/button $:/core/ui/TopBar/menu" modified="20210927234225275" modifier="Telumire" tagging="after" title="$:/tags/TopRightBar">
 <pre></pre>
 </div>
-<div bag="default" created="20210922000559330" list="$:/core/ui/Buttons/more-tiddler-actions $:/spoiler/Button $:/SaveToGitHub/Button/Private $:/SaveToGitHub/Button/GitHubPermalink $:/SaveToGitHub/Button/GitHubPermaView $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/fold-bar $:/core/ui/Buttons/edit $:/Tasker/ui/Buttons/tasker $:/ThemeTweaks/button/right_story" modified="20210922031727826" revision="0" title="$:/tags/ViewToolbar">
+<div bag="default" created="20210922000559330" creator="Telumire" list="$:/Tasker/ui/Buttons/tasker $:/core/ui/Buttons/more-tiddler-actions $:/SaveToGitHub/Button/Private $:/core/ui/Buttons/permalink $:/core/ui/Buttons/fold-bar $:/spoiler/Button $:/SaveToGitHub/Button/GitHubPermalink $:/SaveToGitHub/Button/GitHubPermaView $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/ThemeTweaks/button/right_story" modified="20211002223405252" modifier="Telumire" revision="0" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
 <div bag="default" created="20210816112626171" description="Add a button to set a task status to a tiddler. Integrate with $:/Tasker/Kanban" modified="20210922211148081" revision="0" tagging="after" tags="$:/Tasker/Kanban $:/TiddlyTweaks" title="$:/Tasker">
@@ -15058,6 +15099,20 @@ subFilter=&lt;&lt;subFilter&gt;&gt;
 </div>
 <div bag="default" created="20210907011026232" description="Various theme tweaks to improve the look and feel of TW (according to me)" list="$:/ThemeTweaks $:/ThemeTweaks/button/right_story $:/ThemeTweaks/caption/right_story $:/ThemeTweaks/font/style/Roboto_Slab $:/ThemeTweaks/icon/external_link $:/ThemeTweaks/icon/warning $:/ThemeTweaks/svg/style/external_link $:/ThemeTweaks/style/fold_banner $:/ThemeTweaks/style/fonts $:/ThemeTweaks/style/hide-until-hover $:/ThemeTweaks/style/right_story $:/ThemeTweaks/style/sidebar $:/ThemeTweaks/style/texte-align $:/ThemeTweaks/style/tiddler_controls $:/ThemeTweaks/style/warning" modified="20210923184132624" revision="0" tagging="after" tags="$:/ThemeTweaks $:/TiddlyTweaks" title="$:/ThemeTweaks">
 <pre></pre>
+</div>
+<div created="20211002221949195" modified="20211002222433879" tagging="after" tags="$:/ThemeTweaks $:/tags/TopRightBar $:/ThemeTweaks/BottomRightBar" title="$:/ThemeTweaks/BottomRightBar">
+<pre>&lt;span class=&quot;tc-bottombar-right&quot;&gt;&lt;$list filter=&quot;[tag[$:/tags/BottomRightBar]]&quot;&gt;&lt;$transclude/&gt;&lt;/$list&gt;&lt;/span&gt;</pre>
+</div>
+<div created="20211002222107780" modified="20211002222219519" tags="$:/tags/Stylesheet $:/ThemeTweaks $:/ThemeTweaks/BottomRightBar" title="$:/ThemeTweaks/BottomRightBar/style" type="text/css">
+<pre>.tc-topbar.tc-topbar-right .tc-bottombar-right{
+	position:fixed;
+	right:0;
+	bottom:0;
+}
+
+.tc-topbar.tc-topbar-right .tc-bottombar-right&gt;*{
+padding: 8px;
+}</pre>
 </div>
 <div bag="default" caption="{{$:/core/images/right-arrow}} {{$:/ThemeTweaks/caption/right_story}}" created="20210728115549996" description="Move tiddler to right column" modified="20210922205710630" revision="0" tags="$:/tags/Macro $:/tags/ViewToolbar $:/tags/EditToolbar $:/ThemeTweaks" title="$:/ThemeTweaks/button/right_story">
 <pre>\whitespace trim
@@ -15580,7 +15635,7 @@ fill={{{[&lt;fill&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;match[in
 <div bag="default" created="20210811020158840" modified="20210923184724058" revision="0" tagging="after" tags="$:/ThemeTweaks/SwitchPalette $:/ThemeTweaks" title="$:/ThemeTweaks/SwitchPalette">
 <pre></pre>
 </div>
-<div bag="default" caption="{{$:/ThemeTweaks/SwitchPalette/image}} Switch palette" created="20201210171047824" description="Choose a colour palette" modified="20210927233444384" revision="0" source="[[modified from https://nicolas.petton.fr/tw/notebook.html]]" tags="$:/tags/PageControls $:/ThemeTweaks/SwitchPalette $:/tags/TopRightBar" task="doing" title="$:/ThemeTweaks/SwitchPalette/button" type="text/vnd.tiddlywiki">
+<div bag="default" caption="{{$:/ThemeTweaks/SwitchPalette/image}} Switch palette" created="20201210171047824" description="Choose a colour palette" modified="20211002222443249" revision="0" source="[[modified from https://nicolas.petton.fr/tw/notebook.html]]" tags="$:/tags/PageControls $:/ThemeTweaks/SwitchPalette $:/tags/BottomRightBar" task="doing" title="$:/ThemeTweaks/SwitchPalette/button" type="text/vnd.tiddlywiki">
 <pre>\whitespace trim
 &lt;$vars 
 palettes=&quot;[all[tiddlers+shadows]tag[$:/ThemeTweaks/SwitchPalette/tags]]&quot; 
@@ -15676,11 +15731,50 @@ span.transclude-edit:hover .transclude-edit-button{
 	fill:&lt;&lt;color foreground&gt;&gt;;
 }</pre>
 </div>
+<div caption="{{$:/plugins/danielo515/ContextPlugin/Caption}}" created="20140530173407542" tags="$:/tags/AdvancedSearch" title="Context Search" type="text/vnd.tiddlywiki">
+<pre>\define lingo-base() $:/language/Search/
+&lt;$linkcatcher to=&quot;$:/temp/advancedsearch&quot;&gt;
+
+&lt;&lt;lingo Standard/Hint&gt;&gt;
+
+&lt;div class=&quot;tw-search&quot;&gt;&lt;$edit-text tiddler=&quot;$:/temp/advancedsearch&quot; type=&quot;search&quot; tag=&quot;input&quot;/&gt;&lt;$reveal state=&quot;$:/temp/advancedsearch&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt; &lt;$link to=&quot;&quot; class=&quot;btn-invisible&quot;&gt;{{$:/core/images/close-button}}&lt;/$link&gt;&lt;/$reveal&gt;&lt;/div&gt;
+
+&lt;/$linkcatcher&gt;
+
+&lt;$reveal state=&quot;$:/temp/advancedsearch&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+&lt;div class=&quot;tw-search-results&quot;&gt;
+
+&lt;&lt;lingo Standard/Matches&gt;&gt;
+
+&lt;$list filter=&quot;[!is[system]search{$:/temp/advancedsearch}sort[title]limit[250]]&quot;&gt;
+{{!!title||$:/core/ui/ListItemTemplate}}
+&lt;$context term={{$:/temp/advancedsearch}}/&gt;
+&lt;/$list&gt;
+
+&lt;/div&gt;
+
+&lt;/$reveal&gt;
+
+&lt;$reveal state=&quot;$:/temp/advancedsearch&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+
+&lt;/$reveal&gt;
+</pre>
+</div>
 <div created="20210927161203818" creator="Telumire" modified="20210927161219601" modifier="Telumire" tags="" task="todo" title="Créer un layout custom pour le blog">
 <pre></pre>
 </div>
 <div bag="default" created="20210922215428269" description="todo : add the filter" filter="" modified="20210922220333450" revision="0" tags="" title="Export this wiki settings">
 <pre>&lt;$macrocall $name=&quot;openTiddlers&quot; filter={{!!filter}} text=&quot;Drag to import the settings&quot;/&gt;</pre>
+</div>
+<div created="20210930193655525" creator="Telumire" modified="20210930204032410" modifier="Telumire" tags="" title="List of interesting TiddlyWikis">
+<pre>* https://zettelkasten.sorenbjornstad.com/ - Zettelkasten note-keeping system of Soren Bjornstad
+* https://groktiddlywiki.com/read/ - Grok TiddlyWiki, the definitive TiddlyWiki learning resource
+* http://atlas-disciplines.unige.ch/ - Interactive Historical Atlas of the Disciplines
+* http://tongerner.tiddlyspot.com/
+
+;See also
+
+* https://tiddlywiki.com/#Community</pre>
 </div>
 <div bag="default" created="20210922220541198" modified="20210927092048881" revision="0" tags="$:/tags/SideBar" title="Modified this session" type="text/vnd.tiddlywiki">
 <pre>&lt;ul&gt;
