@@ -147,6 +147,12 @@ Error message and password prompt
 
 <li>$:/AdvancedSearch</li>
 
+<li>$:/bookmarks</li>
+
+<li>$:/bookmarks/button</li>
+
+<li>$:/bookmarks/button/style</li>
+
 <li>$:/config/AutoSave</li>
 
 <li>$:/config/flibbles/relink-titles/relink/$:/plugins/flibbles/relink-titles/rules/directory</li>
@@ -214,6 +220,8 @@ Error message and password prompt
 <li>$:/edit-inline</li>
 
 <li>$:/favicon.ico</li>
+
+<li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
 
@@ -385,6 +393,8 @@ Error message and password prompt
 
 <li>$:/state/tab--1963855381</li>
 
+<li>$:/state/tab--2059509425</li>
+
 <li>$:/state/tab--2112689675</li>
 
 <li>$:/state/tab-1749438307</li>
@@ -511,6 +521,8 @@ Error message and password prompt
 
 <li>$:/ThemeTweaks/svg</li>
 
+<li>$:/ThemeTweaks/svg/star</li>
+
 <li>$:/ThemeTweaks/svg/style/external_link</li>
 
 <li>$:/ThemeTweaks/svg/style/filter_color</li>
@@ -551,9 +563,15 @@ Error message and password prompt
 
 <li>pinned</li>
 
+<li>Second Language Acquisition and Second Language Learning</li>
+
 <li>Style details</li>
 
 <li>task</li>
+
+<li>To be read</li>
+
+<li>ViewTemplate/tags/book</li>
 
 <li>Voir comment implémenter un switch anglais/fr</li>
 
@@ -609,7 +627,76 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div bag="default" created="20210908152838707" creator="Telumire" modified="20211002223518882" modifier="Telumire" revision="0" title="$:/config/AutoSave">
+<div caption="{{$:/ThemeTweaks/svg/star}}" created="20210928134659548" description="A very simple bookmark manager" modified="20211002233223740" tagging="after" tags="$:/tags/SideBar $:/TiddlyTweaks $:/bookmarks" title="$:/bookmarks">
+<pre>&lt;ul style=&quot;list-style:none;&quot;&gt;
+&lt;$list filter=&quot;[tag[bookmark]sort[title]]&quot;&gt;
+&lt;li&gt;{{||$:/bookmarks/button}} - &lt;$link/&gt;&lt;/li&gt;
+&lt;/$list&gt;
+&lt;/ul&gt;</pre>
+</div>
+<div bag="default" caption="Bookmark" created="20210928120601334" description="Add a bookmark" hint="Add a bookmark" modified="20210928142623580" revision="0" tags="$:/bookmarks $:/tags/ViewToolbar" title="$:/bookmarks/button">
+<pre>\whitespace trim
+&lt;$button class=tc-btn-invisible tooltip={{$:/bookmarks/button!!hint}}&gt;
+&lt;$action-listops  $tiddler=&lt;&lt;currentTiddler&gt;&gt; $tags=&quot;+[toggle[bookmark]]&quot; /&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot; variable=_&gt;
+&lt;$list filter=&quot;[all[current]tag[bookmark]]&quot;&gt;
+{{$:/ThemeTweaks/svg/star}}
+&lt;/$list&gt;
+&lt;$list filter=&quot;[all[current]!tag[bookmark]]&quot;&gt;
+&lt;span class=&quot;star-empty&quot;&gt;
+{{$:/ThemeTweaks/svg/star}}
+&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;
+&lt;$text text=&quot; &quot;/&gt;
+&lt;$text text={{$:/bookmarks/button!!caption}}/&gt;
+&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;</pre>
+</div>
+<div created="20210928121007298" modified="20210928140237365" tags="$:/bookmark/button $:/bookmarks $:/tags/Stylesheet" title="$:/bookmarks/button/style">
+<pre>&lt;pre&gt;
+.tc-image-star path{
+stroke-linejoin:round;
+stroke-width:10px;
+}
+
+button .tc-image-star path{
+stroke:&lt;&lt;color foreground&gt;&gt;;
+fill:&lt;&lt;color foreground&gt;&gt;;
+}
+button:hover .tc-image-star path{
+stroke:&lt;&lt;color foreground-hover&gt;&gt;;
+fill:&lt;&lt;color foreground-hover&gt;&gt;;
+}
+button:selected .tc-image-star path{
+stroke:&lt;&lt;color foreground-selected&gt;&gt;;
+fill:&lt;&lt;color foreground-selected&gt;&gt;;
+}
+
+.tc-tiddler-controls button .tc-image-star path{
+stroke:&lt;&lt;color tiddler-controls-foreground&gt;&gt;;
+fill:&lt;&lt;color tiddler-controls-foreground&gt;&gt;;
+}
+
+.tc-tiddler-controls button:hover .tc-image-star path{
+stroke:&lt;&lt;color tiddler-controls-foreground-hover&gt;&gt;;
+fill:&lt;&lt;color tiddler-controls-foreground-hover&gt;&gt;;
+}
+
+.tc-tiddler-controls button:selected .tc-image-star path{
+stroke:&lt;&lt;color tiddler-controls-foreground-selected&gt;&gt;;
+fill:&lt;&lt;color tiddler-controls-foreground-selected&gt;&gt;;
+}
+
+.tc-tiddler-controls button .star-empty .tc-image-star path,
+button .star-empty .tc-image-star path{
+fill:none;
+}</pre>
+</div>
+<div bag="default" created="20210908152838707" creator="Telumire" modified="20211002233917503" modifier="Telumire" revision="0" title="$:/config/AutoSave">
 <pre>no</pre>
 </div>
 <div bag="default" created="20210908160520283" modified="20210908160521340" revision="0" title="$:/config/flibbles/relink-titles/relink/$:/plugins/flibbles/relink-titles/rules/directory">
@@ -10620,13 +10707,18 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 <div created="20210923164244623" modified="20210923201339940" tags="" title="$:/favicon.ico" type="text/vnd.tiddlywiki">
 <pre>&lt;$vars svg={{$:/core/images/theme-button}} fill={{{[&lt;fill&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;match[inherit]then[foreground]else&lt;currentTiddler&gt;]:reduce[{$:/palette}getindex&lt;currentTiddler&gt;else&lt;currentTiddler&gt;]:reduce[&lt;currentTiddler&gt;is[blank]then[$:/palettes/Vanilla]getindex[foreground]else&lt;currentTiddler&gt;]+[search-replace[#],[#]]}}}&gt;&lt;$text text={{{[[&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;]][&lt;fill&gt;][[&quot; width=&quot;22pt&quot; height=&quot;22pt&quot;&gt;]][&lt;svg&gt;][[&lt;/svg&gt;]]+[join[]]}}} /&gt;&lt;/$vars&gt;</pre>
 </div>
+<div status="complete" title="$:/Import">
+<pre>The following tiddlers were imported:
+
+# [[$:/bookmarks]]</pre>
+</div>
 <div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
 </div>
 <div bag="default" created="20210921232125203" creator="Telumire" modified="20210927115345846" modifier="Telumire" revision="0" title="$:/language/ControlPanel/Saving/GitService/CommitMessage">
 <pre>Hello world</pre>
 </div>
-<div bag="default" created="20210906233615248" creator="Telumire" modified="20210927160626918" modifier="Telumire" revision="0" tags="" title="$:/palette">
+<div bag="default" created="20210906233615248" creator="Telumire" modified="20211002223752027" modifier="Telumire" revision="0" tags="" title="$:/palette">
 <pre>$:/palettes/GruvboxDark</pre>
 </div>
 <div bag="default" created="20210907010728393" description="A clean white palette to let you focus" modified="20210923004503310" name="Blanca" revision="0" tags="$:/tags/Palette $:/ThemeTweaks/SwitchPalette/tags PalettePreview" title="$:/palettes/Blanca" type="application/x-tiddler-dictionary">
@@ -14581,10 +14673,10 @@ padding-bottom: 10px;
 <div created="20210930203213990" creator="Telumire" modified="20210930203218108" modifier="Telumire" title="$:/state/search/currentTab">
 <pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
 </div>
-<div created="20210923165147348" creator="Telumire" modified="20210927155912458" modifier="Telumire" title="$:/state/showeditpreview">
-<pre>no</pre>
+<div created="20210923165147348" creator="Telumire" modified="20211002231334206" modifier="Telumire" title="$:/state/showeditpreview">
+<pre>yes</pre>
 </div>
-<div created="20210923195039440" creator="Telumire" modified="20211002222551767" modifier="Telumire" title="$:/state/sidebar">
+<div created="20210923195039440" creator="Telumire" modified="20211002233907739" modifier="Telumire" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20210927100913125" creator="Telumire" modified="20210927100913125" modifier="Telumire" title="$:/state/tab--103319216">
@@ -14595,6 +14687,9 @@ padding-bottom: 10px;
 </div>
 <div created="20210923190323173" creator="Telumire" modified="20210927234415431" modifier="Telumire" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
+</div>
+<div created="20211002230415432" creator="Telumire" modified="20211002230418875" modifier="Telumire" title="$:/state/tab--2059509425">
+<pre>$:/core/ui/TiddlerInfo/Fields</pre>
 </div>
 <div created="20210927100526917" modified="20210927100539539" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
@@ -14608,8 +14703,8 @@ padding-bottom: 10px;
 <div created="20210930203213990" creator="Telumire" modified="20210930203218108" modifier="Telumire" title="$:/state/tab/search-results/sidebar">
 <pre>$:/plugins/danielo515/ContextPlugin/visualizer</pre>
 </div>
-<div created="20210923162159858" creator="Telumire" modified="20211002223423980" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20210923162159858" creator="Telumire" modified="20211002233814797" modifier="Telumire" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210923190359522" creator="Telumire" modified="20211002223118364" modifier="Telumire" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
@@ -14629,7 +14724,7 @@ padding-bottom: 10px;
 <div bag="default" created="20210927100542533" creator="T" modified="20210927100559183" modifier="elumire" revision="1" title="$:/status/UserName">
 <pre>Telumire</pre>
 </div>
-<div list="Welcome" title="$:/StoryList">
+<div created="20211002233815989" creator="Telumire" list="[[To be read]] [[Second Language Acquisition and Second Language Learning]] Welcome" modified="20211002233825190" modifier="Telumire" title="$:/StoryList">
 <pre></pre>
 </div>
 <div bag="default" created="20210923144105193" creator="Telumire" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/close-all $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/plugins/kookma/commander/buttons/pagecontrol $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/save-wiki $:/SaveToGitHub/Button $:/ThemeTweaks/SwitchPalette/button $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/more-page-actions" modified="20210927234514405" modifier="Telumire" revision="0" title="$:/tags/PageControls" type="text/vnd.tiddlywiki">
@@ -15233,7 +15328,7 @@ body {
 	}
 }</pre>
 </div>
-<div bag="default" created="20210727201506053" description="Alternative : https://giffmex.org/stroll/empty.html#%24%3A%2Fplugins%2Fsq%2FStories" modified="20210923152617856" revision="1" tags="$:/tags/Stylesheet $:/ThemeTweaks" title="$:/ThemeTweaks/style/right_story" type="text/css">
+<div bag="default" created="20210727201506053" description="Alternative : https://giffmex.org/stroll/empty.html#%24%3A%2Fplugins%2Fsq%2FStories" modified="20211002225144620" revision="1" tags="$:/tags/Stylesheet $:/ThemeTweaks" title="$:/ThemeTweaks/style/right_story" type="text/css">
 <pre>/*prevent backdrop and frontdrop from generating columns*/
 .story-backdrop, .story-frontdrop {
 display:contents;
@@ -15263,7 +15358,7 @@ padding-bottom:10px;
 max-width:960px;
 }
 
-.tc-tiddler-edit-frame {
+.tc-tiddler-edit-frame, [data-tags*=&quot;full-width&quot;] {
 grid-column:1/span 3;
 max-width:100vw;
 }
@@ -15427,6 +15522,9 @@ margin-right:1ch;
 </div>
 <div bag="default" created="20210922143046823" list="$:/ThemeTweaks/svg/style/external_link $:/ThemeTweaks/svg/url $:/ThemeTweaks/svg/style/system_images $:/ThemeTweaks/svg/wikipedia" modified="20210922145556648" revision="0" tagging="after" tags="$:/ThemeTweaks" title="$:/ThemeTweaks/svg">
 <pre></pre>
+</div>
+<div created="20210928131422906" modified="20210928140625847" tags="$:/ThemeTweaks $:/ThemeTweaks/svg $:/tags/Image $:/bookmarks" title="$:/ThemeTweaks/svg/star">
+<pre>&lt;svg width=&quot;22pt&quot; height=&quot;22pt&quot; class=&quot;tc-image-star tc-image-button&quot; viewBox=&quot;0 0 128 128&quot;&gt;&lt;path d=&quot;M6 48h42L61 8c1-3 5-3 6 0l13 40h42c3 0 4 4 2 6L90 78l13 40c1 3-3 6-5 4L64 97l-34 25c-2 2-6-1-5-4l13-40L4 54c-2-2-1-6 2-6z&quot;/&gt;&lt;/svg&gt;</pre>
 </div>
 <div bag="default" created="20210613102831878" description="https://tiddlywiki.com https://github.com" modified="20210922145536661" revision="0" tagging-tiddler="" tags="$:/ThemeTweaks $:/tags/Stylesheet $:/ThemeTweaks/svg" title="$:/ThemeTweaks/svg/style/external_link">
 <pre>\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline html
@@ -15786,6 +15884,9 @@ span.transclude-edit:hover .transclude-edit-button{
 <div bag="default" created="20210922223508420" list="Welcome $:/TiddlyTweaks [[Modified this session]]" modified="20210927155819259" modifier="Telumire" revision="0" title="pinned">
 <pre></pre>
 </div>
+<div author="Stephen Krashen" created="20211002225304795" creator="Telumire" language="english" modified="20211002233834150" modifier="Telumire" status="TBR" tags="book" title="Second Language Acquisition and Second Language Learning" topic="learning language">
+<pre>See also https://www.youtube.com/watch?v=TKg23ZFURX0</pre>
+</div>
 <div created="20210927094257177" modified="20210927094628576" tags="$:/tags/Stylesheet" title="Style details">
 <pre>details {
 background: &lt;&lt;color background&gt;&gt;;
@@ -15800,10 +15901,26 @@ details summary {
 <div bag="default" created="20210907001351123" list="$:/showInfo/search/template $:/ThemeTweaks/SwitchPalette/button $:/Tasker/ui/Buttons/tasker" modified="20210922211459578" revision="0" title="task">
 <pre></pre>
 </div>
+<div created="20211002224744414" creator="Telumire" modified="20211002233445143" modifier="Telumire" tags="lecture" title="To be read">
+<pre>&lt;ul&gt;
+&lt;$list filter=&quot;[tag[book]]&quot;&gt;
+&lt;li&gt;&lt;$link/&gt; - by {{!!author}} [{{!!status}}]&lt;/li&gt;
+&lt;/$list&gt;
+&lt;/ul&gt;</pre>
+</div>
+<div created="20211002232747322" creator="Telumire" modified="20211002233118035" modifier="Telumire" tags="$:/tags/ViewTemplate bookmark" title="ViewTemplate/tags/book">
+<pre>&lt;$list filter=&quot;[all[current]tag[book]]&quot;&gt;
+&lt;$vars 
+newFieldNameTiddler=&lt;&lt;qualify &quot;$:/temp/NewFieldName&quot;&gt;&gt; newFieldValueTiddler=&lt;&lt;qualify &quot;$:/temp/NewFieldValue&quot;&gt;&gt;
+&gt;
+&lt;$transclude tiddler=&quot;$:/core/ui/EditTemplate/fields&quot;/&gt;
+&lt;/$vars&gt;
+&lt;/$list&gt;</pre>
+</div>
 <div created="20210927161140419" creator="Telumire" modified="20210927161159430" modifier="Telumire" tags="" task="todo" title="Voir comment implémenter un switch anglais/fr">
 <pre></pre>
 </div>
-<div bag="default" created="20210908150922338" creator="Telumire" modified="20210927234812156" modifier="Telumire" revision="0" tags="pinned" title="Welcome">
+<div bag="default" created="20210908150922338" creator="Telumire" modified="20211002224144042" modifier="Telumire" revision="0" tags="pinned" title="Welcome">
 <pre>Hello there, and welcome. This is Telumire's blog - or at least, it will be ! For now, this is a wip.
 In the meantime, you can find the ''other'' stuff I'm working on during my free time bellow :
 
